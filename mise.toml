@@ -1,0 +1,4 @@
+# be sure to update .tool-versions when changing this file
+[tools]
+erlang = "27.3.1"
+elixir = "1.18.3-otp-27"
