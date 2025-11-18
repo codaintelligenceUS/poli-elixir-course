@@ -17,7 +17,7 @@ This course teaches Elixir through progressive exercises, each building on previ
 
 ### Prerequisites
 
-- [mise](https://mise.jdx.dev/) - manages Elixir/Erlang versions
+- [mise](https://mise.jdx.dev/) - manages Elixir/Erlang versions (don't forget to [activate mise after installation](https://mise.jdx.dev/getting-started.html#activate-mise))
 
 ### Installation
 
