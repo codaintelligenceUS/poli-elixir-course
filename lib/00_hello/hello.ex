@@ -20,7 +20,7 @@ defmodule ElixirBeginnerCourse.Hello do
       "Hello, world!"
   """
   @spec greet(String.t()) :: String.t()
-  def greet(name) when is_binary(name) do
+  def greet(_name) do
     raise "not implemented"
   end
 end

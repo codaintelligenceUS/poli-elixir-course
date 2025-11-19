@@ -1,7 +1,7 @@
 defmodule ElixirBeginnerCourse.PatternMatchTest do
   use ExUnit.Case, async: true
 
-  alias ElixirBeginnerCourse.Solution.PatternMatch
+  alias ElixirBeginnerCourse.PatternMatch
   doctest ElixirBeginnerCourse.PatternMatch
 
   describe "parse_response/1" do

@@ -26,7 +26,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
       :ok
   """
   @spec put(GenServer.server(), term(), term(), non_neg_integer()) :: :ok
-  def put(server \\ __MODULE__, key, value, ttl_ms) do
+  def put(_server \\ __MODULE__, _key, _value, _ttl_ms) do
     raise "not implemented"
   end
 
@@ -45,7 +45,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
       :error
   """
   @spec get(GenServer.server(), term()) :: {:ok, term()} | :error
-  def get(server \\ __MODULE__, key) do
+  def get(_server \\ __MODULE__, _key) do
     raise "not implemented"
   end
 
@@ -61,7 +61,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
       :ok
   """
   @spec put_async(GenServer.server(), term(), term(), non_neg_integer()) :: :ok
-  def put_async(server \\ __MODULE__, key, value, ttl_ms) do
+  def put_async(_server \\ __MODULE__, _key, _value, _ttl_ms) do
     raise "not implemented"
   end
 
@@ -78,7 +78,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
       :ok
   """
   @spec delete(GenServer.server(), term()) :: :ok
-  def delete(server \\ __MODULE__, key) do
+  def delete(_server \\ __MODULE__, _key) do
     raise "not implemented"
   end
 
@@ -94,7 +94,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
       :ok
   """
   @spec clear(GenServer.server()) :: :ok
-  def clear(server \\ __MODULE__) do
+  def clear(_server \\ __MODULE__) do
     raise "not implemented"
   end
 
@@ -107,7 +107,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
   end
 
   @impl true
-  def handle_call({:put, key, value, ttl_ms}, _from, state) do
+  def handle_call({:put, _key, _value, _ttl_ms}, _from, _state) do
     # TODO:
     # 1. Check if key exists and cancel old timer if present
     # 2. Schedule a new expiration message with Process.send_after/3
@@ -117,7 +117,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
   end
 
   @impl true
-  def handle_call({:get, key}, _from, state) do
+  def handle_call({:get, _key}, _from, _state) do
     # TODO:
     # 1. Look up the key in state
     # 2. Return {:ok, value} if found, :error otherwise
@@ -126,7 +126,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
   end
 
   @impl true
-  def handle_cast({:put, key, value, ttl_ms}, state) do
+  def handle_cast({:put, _key, _value, _ttl_ms}, _state) do
     # TODO: Same logic as handle_call(:put, ...) but:
     # 1. Use {:noreply, new_state} instead of {:reply, :ok, new_state}
     # 2. This is the async version - no reply needed
@@ -134,7 +134,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
   end
 
   @impl true
-  def handle_cast({:delete, key}, state) do
+  def handle_cast({:delete, _key}, _state) do
     # TODO:
     # 1. Check if key exists and cancel timer if present
     # 2. Remove key from state
@@ -143,7 +143,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
   end
 
   @impl true
-  def handle_cast(:clear, state) do
+  def handle_cast(:clear, _state) do
     # TODO:
     # 1. Cancel all active timers (iterate through state)
     # 2. Return empty state: {:noreply, %{}}
@@ -151,7 +151,7 @@ defmodule ElixirBeginnerCourse.GenServer.TTLCache do
   end
 
   @impl true
-  def handle_info({:expire, key}, state) do
+  def handle_info({:expire, _key}, _state) do
     raise "not implemented"
   end
 end

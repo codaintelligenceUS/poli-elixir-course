@@ -21,7 +21,7 @@ defmodule ElixirBeginnerCourse.PatternMatch do
       "Unknown response"
   """
   @spec parse_response(tuple() | atom()) :: String.t()
-  def parse_response(response) do
+  def parse_response(_response) do
     raise "Not implemented"
   end
 
@@ -43,7 +43,7 @@ defmodule ElixirBeginnerCourse.PatternMatch do
       "Invalid user data"
   """
   @spec extract_user(map()) :: String.t()
-  def extract_user(map) do
+  def extract_user(_map) do
     raise "Not implemented"
   end
 end
