@@ -1,4 +1,4 @@
-defmodule TTLCache do
+defmodule ElixirBeginnerCourse.GenServer.TTLCache do
   @moduledoc """
   A simple TTL key/value cache implemented using a GenServer.
 

@@ -1,4 +1,4 @@
-defmodule TTLCacheTest do
+defmodule ElixirBeginnerCourse.GenServer.TTLCacheTest do
   use ExUnit.Case, async: false
 
   # Notice: async: false — timing tests shouldn't run concurrently
@@ -16,12 +16,12 @@ defmodule TTLCacheTest do
       {:ok, cache} = TTLCache.start_link([])
 
       TTLCache.put(cache, :a, 123, 50)
-      assert {:ok, 123} == TTLCache.get(cache, :a)
+      assert TTLCache.get(cache, :a) == {:ok, 123}
 
       # Wait slightly longer than TTL
       Process.sleep(60)
 
-      assert :error == TTLCache.get(cache, :a)
+      assert TTLCache.get(cache, :a) == :error
     end
   end
 end

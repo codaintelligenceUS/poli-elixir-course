@@ -1,4 +1,4 @@
-defmodule TTLCacheSolution do
+defmodule ElixirBeginnerCourse.GenServer.Solution.TTLCache do
   use GenServer
 
   def start_link(opts \\ []) do
