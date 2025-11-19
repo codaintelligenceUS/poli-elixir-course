@@ -13,4 +13,5 @@ Implement `Hello.greet/1` that returns `"Hello, <name>!"`.
 
 ## Running
 ```bash
-./scripts/run.sh 00_hello
+mix test lib/00_hello
+```
