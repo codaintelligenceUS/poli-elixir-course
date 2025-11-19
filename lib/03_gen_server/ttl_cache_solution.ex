@@ -1,17 +1,27 @@
 defmodule ElixirBeginnerCourse.GenServer.Solution.TTLCache do
+  @moduledoc """
+  GenServer documentation: https://hexdocs.pm/elixir/GenServer.html
+  """
+
+  require Logger
+
   use GenServer
 
-  def start_link(opts \\ []) do
-    GenServer.start_link(__MODULE__, :ok, opts)
+  def start_link(_opts) do
+    GenServer.start_link(__MODULE__, :ok, name: __MODULE__)
   end
 
   # Synchronous operations (wait for response)
-  def put(server \\ __MODULE__, key, value, ttl_ms) do
-    GenServer.call(server, {:put, key, value, ttl_ms})
+  def put(key, value, ttl_ms) do
+    GenServer.call(__MODULE__, {:put, key, value, ttl_ms})
   end
 
-  def get(server \\ __MODULE__, key) do
-    GenServer.call(server, {:get, key})
+  def all do
+    GenServer.call(__MODULE__, :all)
+  end
+
+  def get(key) do
+    GenServer.call(__MODULE__, {:get, key})
   end
 
   # Asynchronous operations (fire-and-forget)
@@ -19,22 +29,24 @@ defmodule ElixirBeginnerCourse.GenServer.Solution.TTLCache do
   @doc """
   Asynchronously store a key/value pair. Does not wait for confirmation.
   """
-  def put_async(server \\ __MODULE__, key, value, ttl_ms) do
-    GenServer.cast(server, {:put, key, value, ttl_ms})
+  def put_async(key, value, ttl_ms) do
+    GenServer.cast(__MODULE__, {:put, key, value, ttl_ms})
   end
 
   @doc """
   Asynchronously delete a key. Does not wait for confirmation.
   """
-  def delete(server \\ __MODULE__, key) do
-    GenServer.cast(server, {:delete, key})
+  def delete(key) do
+    GenServer.cast(__MODULE__, {:delete, key})
   end
 
   @doc """
   Asynchronously clear all entries. Does not wait for confirmation.
   """
-  def clear(server \\ __MODULE__) do
-    GenServer.cast(server, :clear)
+  def clear do
+    Logger.info("Caller process: #{inspect(self())}")
+
+    GenServer.cast(__MODULE__, :clear)
   end
 
   # Callbacks
@@ -73,6 +85,11 @@ defmodule ElixirBeginnerCourse.GenServer.Solution.TTLCache do
   end
 
   @impl true
+  def handle_call(:all, _, state) do
+    {:reply, state, state}
+  end
+
+  @impl true
   def handle_cast({:put, key, value, ttl_ms}, state) do
     # Cancel old timer if key already exists
     state =
@@ -108,6 +125,8 @@ defmodule ElixirBeginnerCourse.GenServer.Solution.TTLCache do
 
   @impl true
   def handle_cast(:clear, state) do
+    Logger.info("Spawned process: #{inspect(self())}")
+
     # Cancel all timers before clearing
     Enum.each(state, fn
       {_key, {_value, timer_ref}} when is_reference(timer_ref) ->
