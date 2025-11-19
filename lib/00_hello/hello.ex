@@ -1,4 +1,4 @@
-defmodule Hello do
+defmodule ElixirBeginnerCourse.Hello do
   @moduledoc """
   First contact with modules, functions, and doctests.
   """

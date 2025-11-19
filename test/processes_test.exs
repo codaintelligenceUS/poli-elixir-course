@@ -1,6 +1,8 @@
-defmodule ProcessesTest do
+defmodule ElixirBeginnerCourse.ProcessesTest do
   use ExUnit.Case, async: true
-  doctest Processes
+
+  alias ElixirBeginnerCourse.Processes
+  doctest ElixirBeginnerCourse.Processes
 
   describe "ping_pong/0" do
     @tag :skip

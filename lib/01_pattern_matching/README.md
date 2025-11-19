@@ -19,9 +19,5 @@ Implement `PatternMatch.extract_user/1` that extracts user info from maps.
 
 ## Running
 ```bash
-iex lib/01_pattern_matching/lib/pattern_match.ex
-```
-To run the tests:
-```bash
-mix test lib/01_pattern_matching
+mix test test/pattern_match_test.exs
 ```

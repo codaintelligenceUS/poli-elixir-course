@@ -16,5 +16,5 @@ Implement `Processes.ping_pong/0` that creates two processes that exchange messa
 
 ## Running
 ```bash
-mix test lib/02_processes
+mix test test/processes_test.exs
 ```

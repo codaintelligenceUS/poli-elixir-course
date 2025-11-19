@@ -9,7 +9,7 @@ defmodule ElixirBeginnerCourse.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       elixirc_paths: elixirc_paths(Mix.env()),
-      test_paths: ["lib"]
+      test_paths: ["test"]
     ]
   end
 

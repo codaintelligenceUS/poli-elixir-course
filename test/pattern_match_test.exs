@@ -1,6 +1,8 @@
-defmodule PatternMatchTest do
+defmodule ElixirBeginnerCourse.PatternMatchTest do
   use ExUnit.Case, async: true
-  doctest PatternMatch
+
+  alias ElixirBeginnerCourse.Solution.PatternMatch
+  doctest ElixirBeginnerCourse.PatternMatch
 
   describe "parse_response/1" do
     @tag :skip
@@ -16,7 +18,7 @@ defmodule PatternMatchTest do
     @tag :skip
     test "handles :redirect tuple" do
       assert "Redirecting to https://example.com" ==
-        PatternMatch.parse_response({:redirect, "https://example.com"})
+               PatternMatch.parse_response({:redirect, "https://example.com"})
     end
 
     @tag :skip
@@ -30,7 +32,7 @@ defmodule PatternMatchTest do
     @tag :skip
     test "extracts valid user data" do
       assert "Alice is 30 years old" ==
-        PatternMatch.extract_user(%{name: "Alice", age: 30})
+               PatternMatch.extract_user(%{name: "Alice", age: 30})
     end
 
     @tag :skip
@@ -46,7 +48,7 @@ defmodule PatternMatchTest do
     @tag :skip
     test "handles extra fields" do
       assert "Bob is 25 years old" ==
-        PatternMatch.extract_user(%{name: "Bob", age: 25, email: "bob@example.com"})
+               PatternMatch.extract_user(%{name: "Bob", age: 25, email: "bob@example.com"})
     end
   end
 end

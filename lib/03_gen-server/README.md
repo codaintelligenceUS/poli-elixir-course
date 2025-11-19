@@ -31,5 +31,5 @@ Create a module `ElixirBeginnerCourse.GenServer.TTLCache` with:
 
 ## Running
 ```bash
-mix test lib/03_gen-server
+mix test test/ttl_cache_test.exs
 ```

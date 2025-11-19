@@ -1,4 +1,4 @@
-defmodule Processes do
+defmodule ElixirBeginnerCourse.Processes do
   @moduledoc """
   Practice working with Elixir processes, message passing, and concurrency.
   """

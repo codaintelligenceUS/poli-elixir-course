@@ -1,6 +1,8 @@
-defmodule HelloTest do
+defmodule ElixirBeginnerCourse.HelloTest do
   use ExUnit.Case, async: true
-  doctest Hello
+
+  alias ElixirBeginnerCourse.Hello
+  doctest ElixirBeginnerCourse.Hello
 
   describe "greet/1" do
     test "basic" do

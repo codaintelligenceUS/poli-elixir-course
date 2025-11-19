@@ -1,4 +1,4 @@
-defmodule PatternMatchSolution do
+defmodule ElixirBeginnerCourse.Solution.PatternMatch do
   @moduledoc """
   Practice pattern matching with function clauses, tuples, and maps.
   """
